@@ -119,6 +119,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            border: 2px solid #1a1a1a;
         }
 
         header::after {
@@ -174,6 +175,7 @@
             box-shadow: 0 8px 30px rgba(43, 43, 43, 0.2);
             background: linear-gradient(135deg, #2b2b2b 0%, #1a1a1a 100%);
             transition: all 0.4s ease;
+            border: 2px solid #1a1a1a;
         }
 
         .banner-section:hover {
@@ -352,7 +354,7 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(43, 43, 43, 0.05);
+            border: 2px solid #e0e0e0;
         }
 
         .maintenance-section::before {
@@ -591,6 +593,7 @@
             box-shadow: 0 2px 15px rgba(43, 43, 43, 0.08);
             background: #2b2b2b;
             padding: 0;
+            border: 2px solid rgba(91, 71, 255, 0.2);
         }
 
         .image-slideshow {
@@ -925,132 +928,185 @@
             display: none;
         }
 
-        .game-character {
+        /* Tap Target */
+        .tap-target {
             position: absolute;
-            bottom: 55px;
-            left: 70px;
-            font-size: 3rem;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, #5b47ff, #7b68ff);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 8px 25px rgba(91, 71, 255, 0.4);
+            user-select: none;
+        }
+
+        .tap-target:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+            box-shadow: 0 12px 35px rgba(91, 71, 255, 0.5);
+        }
+
+        .tap-target:active {
+            transform: translate(-50%, -50%) scale(0.95);
+            box-shadow: 0 4px 15px rgba(91, 71, 255, 0.6);
+        }
+
+        .tap-icon {
+            font-size: 4rem;
+            animation: bounce 1s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .tap-text {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-top: 5px;
+            letter-spacing: 1px;
+        }
+
+        .tap-target.tapped {
+            animation: tapPulse 0.3s ease;
+        }
+
+        @keyframes tapPulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.2); }
+        }
+
+        /* Game Timer */
+        .game-timer {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #2b2b2b, #3d3d3d);
+            color: #ffffff;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            box-shadow: 0 4px 15px rgba(43, 43, 43, 0.3);
             z-index: 10;
-            transition: bottom 0.05s ease;
-            color: #2b2b2b;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
-            transform: rotate(90deg);
         }
 
-        .game-character.jumping {
-            animation: jump 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        @keyframes jump {
-            0% {
-                bottom: 55px;
-                transform: rotate(90deg);
-            }
-            50% {
-                bottom: 200px;
-                transform: rotate(135deg);
-            }
-            100% {
-                bottom: 55px;
-                transform: rotate(90deg);
-            }
-        }
-
-        .game-obstacle {
+        /* Game Start Screen */
+        .game-start {
             position: absolute;
-            bottom: 55px;
-            right: -60px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 20;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px 50px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(43, 43, 43, 0.15);
+        }
+
+        .start-title {
             font-size: 2.5rem;
-            animation: moveObstacle 3s linear infinite;
-            z-index: 9;
-            color: #ff4757;
-            filter: drop-shadow(0 2px 4px rgba(255, 71, 87, 0.3));
+            font-weight: 800;
+            color: #2b2b2b;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
         }
 
-        @keyframes moveObstacle {
-            from {
-                right: -60px;
-            }
-            to {
-                right: calc(100% + 60px);
-            }
+        .start-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 30px;
         }
 
+        .start-button {
+            background: linear-gradient(135deg, #5b47ff, #7b68ff);
+            color: #ffffff;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(91, 71, 255, 0.4);
+            letter-spacing: 1px;
+        }
+
+        .start-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(91, 71, 255, 0.5);
+        }
+
+        .start-button:active {
+            transform: translateY(-1px);
+        }
+
+        /* Game Over */
         .game-over {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: #ffffff;
-            color: #2b2b2b;
-            padding: 35px 55px;
-            border-radius: 20px;
-            border: 2px solid #2b2b2b;
-            font-size: 2rem;
-            font-weight: 800;
-            display: none;
             text-align: center;
-            box-shadow: 0 8px 30px rgba(43, 43, 43, 0.2);
-            animation: gameOverAppear 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            z-index: 100;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            z-index: 20;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px 50px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(43, 43, 43, 0.15);
+        }
+
+        .game-over-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #2b2b2b;
+            margin-bottom: 15px;
             letter-spacing: 2px;
-        }
-
-        @keyframes gameOverAppear {
-            0% {
-                transform: translate(-50%, -50%) scale(0.7) rotate(-5deg);
-                opacity: 0;
-            }
-            100% {
-                transform: translate(-50%, -50%) scale(1) rotate(0deg);
-                opacity: 1;
-            }
-        }
-
-        .game-over:hover {
-            background: #2b2b2b;
-            color: #ffffff;
-            transform: translate(-50%, -50%) scale(1.05);
-        }
-
-        .game-over-subtitle {
-            font-size: 1rem;
-            font-weight: 500;
-            margin-top: 15px;
-            color: inherit;
-            letter-spacing: 1px;
         }
 
         .game-over-score {
-            font-size: 1.1rem;
-            margin-top: 12px;
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .game-over-score span {
             color: #5b47ff;
-            font-weight: 700;
-            letter-spacing: 0.5px;
+            font-weight: 800;
+            font-size: 2rem;
         }
 
-        .game-over:hover .game-over-score {
+        .restart-button {
+            background: linear-gradient(135deg, #5b47ff, #7b68ff);
             color: #ffffff;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(91, 71, 255, 0.4);
+            letter-spacing: 1px;
         }
 
-        .game-paused {
-            position: absolute;
-            top: 25px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, #2b2b2b 0%, #3d3d3d 100%);
-            color: #ffffff;
-            padding: 12px 30px;
-            border-radius: 12px;
-            border: 2px solid #2b2b2b;
-            font-size: 1.1rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            display: none;
-            box-shadow: 0 4px 15px rgba(43, 43, 43, 0.3);
-            z-index: 50;
+        .restart-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(91, 71, 255, 0.5);
+        }
+
+        .restart-button:active {
+            transform: translateY(-1px);
         }
 
         /* Contact Section - HALF WIDTH */
@@ -2208,68 +2264,74 @@
             }
 
             .game-canvas {
-                height: 250px;
+                height: 350px;
                 -webkit-tap-highlight-color: rgba(91, 71, 255, 0.2);
                 user-select: none;
                 -webkit-user-select: none;
+                touch-action: manipulation;
             }
 
-            .game-canvas:active {
-                background: linear-gradient(180deg, #f0f3f7 0%, #e0e5eb 100%);
+            .tap-target {
+                width: 140px;
+                height: 140px;
             }
 
-            .game-character {
-                bottom: 50px;
-                left: 40px;
+            .tap-icon {
                 font-size: 3rem;
             }
 
-            @keyframes jump {
-                0% {
-                    bottom: 50px;
-                    transform: rotate(90deg);
-                }
-                50% {
-                    bottom: 180px;
-                    transform: rotate(135deg);
-                }
-                100% {
-                    bottom: 50px;
-                    transform: rotate(90deg);
-                }
+            .tap-text {
+                font-size: 1rem;
             }
 
-            .game-obstacle {
-                bottom: 50px;
-                font-size: 2.5rem;
+            .game-timer {
+                font-size: 1.2rem;
+                padding: 10px 25px;
+            }
+
+            .game-start {
+                padding: 30px 35px;
+                max-width: 90%;
+            }
+
+            .start-title {
+                font-size: 1.8rem;
+            }
+
+            .start-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .start-button {
+                padding: 12px 35px;
+                font-size: 1rem;
+            }
+
+            .game-over {
+                padding: 30px 35px;
+                max-width: 90%;
+            }
+
+            .game-over-title {
+                font-size: 1.8rem;
+            }
+
+            .game-over-score {
+                font-size: 1.1rem;
+            }
+
+            .game-over-score span {
+                font-size: 1.6rem;
+            }
+
+            .restart-button {
+                padding: 12px 35px;
+                font-size: 1rem;
             }
 
             .game-instructions {
                 font-size: 0.85rem;
                 line-height: 1.8;
-            }
-
-            .game-instructions kbd {
-                padding: 5px 12px;
-                font-size: 0.75rem;
-                border-radius: 6px;
-            }
-
-            .game-over {
-                padding: 25px 30px;
-                font-size: 1.5rem;
-                letter-spacing: 1.5px;
-                max-width: 90%;
-            }
-
-            .game-over-subtitle {
-                font-size: 0.95rem;
-                margin-top: 12px;
-            }
-
-            .game-over-score {
-                font-size: 1.05rem;
-                margin-top: 10px;
             }
 
             .game-paused {
@@ -2512,24 +2574,31 @@
             <!-- Mini Game Section -->
             <section class="game-container" id="gameContainer">
                 <div class="game-header">
-                    <h2 class="game-title">STREETRUNNER</h2>
+                    <h2 class="game-title">SPEED TAPPER</h2>
                     <div class="game-stats">
-                        <div class="game-score">Score <span id="gameScore">0</span></div>
+                        <div class="game-score">Taps <span id="gameScore">0</span></div>
                         <div class="game-high-score">Best <span id="gameHighScore">0</span></div>
                     </div>
                 </div>
                 <div class="game-canvas" id="gameCanvas">
-                    <div class="game-character" id="gameCharacter">▶</div>
-                    <div class="game-obstacle" id="gameObstacle">■</div>
-                    <div class="game-paused" id="gamePaused">PAUSED</div>
-                    <div class="game-over" id="gameOver">
-                        GAME OVER!
-                        <div class="game-over-subtitle">Click to Restart</div>
-                        <div class="game-over-score">Final Score: <span id="finalScore">0</span></div>
+                    <div id="tapTarget" class="tap-target">
+                        <div class="tap-icon">👆</div>
+                        <div class="tap-text">TAP ME!</div>
+                    </div>
+                    <div id="timer" class="game-timer">10.0s</div>
+                    <div id="gameStart" class="game-start">
+                        <div class="start-title">⚡ SPEED TAPPER ⚡</div>
+                        <div class="start-subtitle">Tap as fast as you can in 10 seconds!</div>
+                        <button class="start-button">START GAME</button>
+                    </div>
+                    <div id="gameOver" class="game-over" style="display: none;">
+                        <div class="game-over-title">TIME'S UP!</div>
+                        <div class="game-over-score">You tapped <span id="finalScore">0</span> times!</div>
+                        <button class="restart-button">PLAY AGAIN</button>
                     </div>
                 </div>
                 <div class="game-instructions">
-                    Press <kbd>SPACE</kbd> or <kbd>CLICK</kbd> to Jump! • Press <kbd>P</kbd> to Pause
+                    Tap or click the target as fast as you can!
                 </div>
             </section>
         </div>
@@ -2796,213 +2865,149 @@
             customCursor.style.transform = 'scale(1)';
         });
 
-        // Enhanced Mini Game Logic
+        // Speed Tapper Game Logic
         const gameCanvas = document.getElementById('gameCanvas');
-        const gameCharacter = document.getElementById('gameCharacter');
-        const gameObstacle = document.getElementById('gameObstacle');
+        const tapTarget = document.getElementById('tapTarget');
+        const timerDisplay = document.getElementById('timer');
+        const gameStart = document.getElementById('gameStart');
         const gameOver = document.getElementById('gameOver');
-        const gamePaused = document.getElementById('gamePaused');
         const gameScoreElement = document.getElementById('gameScore');
         const gameHighScoreElement = document.getElementById('gameHighScore');
+        const finalScoreElement = document.getElementById('finalScore');
+        const startButton = document.querySelector('.start-button');
+        const restartButton = document.querySelector('.restart-button');
         
-        let isJumping = false;
-        let gameScore = 0;
-        let gameHighScore = localStorage.getItem('streetRunnerHighScore') || 0;
-        let gameActive = true;
-        let gamePausedState = false;
-        let isMobile = window.innerWidth <= 768;
-        let obstacleSpeed = isMobile ? 2.0 : 2.5; // Slower on mobile
-        let gameLoop;
-        let scoreInterval;
+        let tapCount = 0;
+        let timeLeft = 10;
+        let gameActive = false;
+        let timerInterval;
+        let gameHighScore = localStorage.getItem('speedTapperHighScore') || 0;
         
         gameHighScoreElement.textContent = gameHighScore;
 
-        // Adjust obstacle animation duration for mobile
-        if (isMobile) {
-            gameObstacle.style.animationDuration = '3.5s';
-        }
-        
-        // Jump function
-        function jump() {
-            if (!isJumping && gameActive && !gamePausedState) {
-                isJumping = true;
-                gameCharacter.classList.add('jumping');
-                
-                setTimeout(() => {
-                    gameCharacter.classList.remove('jumping');
-                    isJumping = false;
-                }, 600);
-            }
-        }
-        
-        // Jump controls - Mouse/Click
-        gameCanvas.addEventListener('click', (e) => {
-            if (!gameActive) {
-                restartGame();
-            } else {
-                jump();
-            }
-        });
-
-        // Touch controls for mobile
-        gameCanvas.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            if (!gameActive) {
-                restartGame();
-            } else {
-                jump();
-            }
-        });
-
-        // Game Over modal touch support
-        gameOver.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            if (!gameActive) {
-                restartGame();
-            }
-        });
-        
-        // Keyboard controls
-        document.addEventListener('keydown', (e) => {
-            if (e.code === 'Space') {
-                e.preventDefault();
-                if (!gameActive) {
-                    restartGame();
+        // Start game
+        function startGame() {
+            tapCount = 0;
+            timeLeft = 10;
+            gameActive = true;
+            
+            gameScoreElement.textContent = '0';
+            timerDisplay.textContent = '10.0s';
+            gameStart.style.display = 'none';
+            tapTarget.style.display = 'flex';
+            timerDisplay.style.display = 'block';
+            
+            // Reset target position
+            tapTarget.style.left = '50%';
+            tapTarget.style.top = '50%';
+            tapTarget.style.transform = 'translate(-50%, -50%)';
+            
+            // Start timer
+            timerInterval = setInterval(() => {
+                timeLeft -= 0.1;
+                if (timeLeft <= 0) {
+                    endGame();
                 } else {
-                    jump();
+                    timerDisplay.textContent = timeLeft.toFixed(1) + 's';
+                    
+                    // Change timer color as time runs out
+                    if (timeLeft <= 3) {
+                        timerDisplay.style.background = 'linear-gradient(135deg, #ff4757, #ff6348)';
+                    } else if (timeLeft <= 5) {
+                        timerDisplay.style.background = 'linear-gradient(135deg, #ffa502, #ff6348)';
+                    }
                 }
-            }
-            
-            // Pause functionality
-            if (e.code === 'KeyP') {
-                e.preventDefault();
-                togglePause();
-            }
-        });
-        
-        // Pause toggle
-        function togglePause() {
-            if (!gameActive) return;
-            
-            gamePausedState = !gamePausedState;
-            
-            if (gamePausedState) {
-                gamePaused.style.display = 'block';
-                gameObstacle.style.animationPlayState = 'paused';
-            } else {
-                gamePaused.style.display = 'none';
-                gameObstacle.style.animationPlayState = 'running';
-            }
+            }, 100);
         }
         
-        // Check collision
-        function checkCollision() {
-            if (!gameActive || gamePausedState) return;
+        // Handle tap
+        function handleTap(e) {
+            if (!gameActive) return;
+            e.preventDefault();
+            e.stopPropagation();
             
-            const characterRect = gameCharacter.getBoundingClientRect();
-            const obstacleRect = gameObstacle.getBoundingClientRect();
+            tapCount++;
+            gameScoreElement.textContent = tapCount;
             
-            // More precise collision detection
-            const overlap = !(
-                characterRect.right < obstacleRect.left + 10 ||
-                characterRect.left > obstacleRect.right - 10 ||
-                characterRect.bottom < obstacleRect.top + 10 ||
-                characterRect.top > obstacleRect.bottom - 10
-            );
+            // Visual feedback
+            tapTarget.classList.remove('tapped');
+            void tapTarget.offsetWidth; // Force reflow
+            tapTarget.classList.add('tapped');
             
-            if (overlap) {
-                endGame();
-            }
+            // Change position randomly - adjusted for mobile
+            const isMobile = window.innerWidth <= 768;
+            const targetSize = isMobile ? 140 : 180;
+            const padding = isMobile ? 80 : 100;
+            
+            const maxX = gameCanvas.clientWidth - targetSize - padding;
+            const maxY = gameCanvas.clientHeight - targetSize - padding;
+            const randomX = Math.random() * maxX + padding;
+            const randomY = Math.random() * maxY + padding;
+            
+            tapTarget.style.left = randomX + 'px';
+            tapTarget.style.top = randomY + 'px';
+            tapTarget.style.transform = 'translate(-50%, -50%)';
         }
         
         // End game
         function endGame() {
             gameActive = false;
+            clearInterval(timerInterval);
+            
+            tapTarget.style.display = 'none';
+            timerDisplay.style.display = 'none';
             gameOver.style.display = 'block';
-            gameObstacle.style.animationPlayState = 'paused';
+            finalScoreElement.textContent = tapCount;
             
-            // Show final score
-            document.getElementById('finalScore').textContent = gameScore;
+            // Reset timer color
+            timerDisplay.style.background = 'linear-gradient(135deg, #2b2b2b, #3d3d3d)';
             
-            // Update high score
-            if (gameScore > gameHighScore) {
-                gameHighScore = gameScore;
+            // Check and update high score
+            if (tapCount > gameHighScore) {
+                gameHighScore = tapCount;
                 gameHighScoreElement.textContent = gameHighScore;
-                localStorage.setItem('streetRunnerHighScore', gameHighScore);
-            }
-            
-            // Clear intervals
-            if (scoreInterval) {
-                clearInterval(scoreInterval);
-                scoreInterval = null;
+                localStorage.setItem('speedTapperHighScore', gameHighScore);
             }
         }
         
-        // Update score
-        function updateScore() {
-            if (gameActive && !gamePausedState) {
-                gameScore++;
-                gameScoreElement.textContent = gameScore;
-                
-                // Progressive difficulty - more gradual increase
-                if (gameScore % 50 === 0 && gameScore > 0) {
-                    obstacleSpeed = Math.min(obstacleSpeed + 0.1, 4.5); // Cap at 4.5x speed
-                    const currentDuration = parseFloat(gameObstacle.style.animationDuration) || 3;
-                    const newDuration = Math.max(currentDuration - 0.15, 1.5); // Min 1.5s
-                    gameObstacle.style.animationDuration = newDuration + 's';
-                }
-                
-                // Visual feedback for milestones
-                if (gameScore % 25 === 0 && gameScore > 0) {
-                    gameCanvas.style.borderColor = '#5b47ff';
-                    gameCanvas.style.boxShadow = 'inset 0 2px 8px rgba(91, 71, 255, 0.2)';
-                    setTimeout(() => {
-                        gameCanvas.style.borderColor = '#d0d5dd';
-                        gameCanvas.style.boxShadow = 'inset 0 2px 8px rgba(0, 0, 0, 0.05)';
-                    }, 300);
-                }
-            }
-        }
-        
-        // Restart game
-        function restartGame() {
-            // Clear any existing intervals first
-            if (scoreInterval) {
-                clearInterval(scoreInterval);
-                scoreInterval = null;
-            }
-            
-            // Reset game state
-            gameActive = true;
-            gamePausedState = false;
-            gameScore = 0;
-            isMobile = window.innerWidth <= 768;
-            obstacleSpeed = isMobile ? 2.0 : 2.5;
-            
-            // Update UI
-            gameScoreElement.textContent = '0';
+        // Reset game
+        function resetGame() {
             gameOver.style.display = 'none';
-            gamePaused.style.display = 'none';
-            
-            // Reset obstacle animation - slower on mobile
-            gameObstacle.style.animationPlayState = 'running';
-            gameObstacle.style.animation = 'none';
-            setTimeout(() => {
-                const duration = isMobile ? '3.5s' : '3s';
-                gameObstacle.style.animation = `moveObstacle ${duration} linear infinite`;
-            }, 10);
-            
-            // Reset canvas styles
-            gameCanvas.style.borderColor = '#d0d5dd';
-            gameCanvas.style.boxShadow = 'inset 0 2px 8px rgba(0, 0, 0, 0.05)';
-            
-            // Start new score interval
-            scoreInterval = setInterval(updateScore, 150);
+            gameStart.style.display = 'block';
         }
         
-        // Start game loop
-        gameLoop = setInterval(checkCollision, 10);
-        scoreInterval = setInterval(updateScore, 150);
+        // Event listeners
+        startButton.addEventListener('click', startGame);
+        startButton.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            startGame();
+        });
+        
+        restartButton.addEventListener('click', resetGame);
+        restartButton.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            resetGame();
+        });
+        
+        // Tap events (both click and touch)
+        tapTarget.addEventListener('click', handleTap);
+        tapTarget.addEventListener('touchstart', handleTap);
+        
+        // Prevent double-tap zoom and context menu on mobile
+        tapTarget.addEventListener('touchend', (e) => {
+            e.preventDefault();
+        });
+        
+        tapTarget.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+        });
+        
+        // Prevent scroll on game canvas during play
+        gameCanvas.addEventListener('touchmove', (e) => {
+            if (gameActive) {
+                e.preventDefault();
+            }
+        }, { passive: false });
     </script>
 
     <!-- Click Tracking Script -->
