@@ -186,9 +186,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **StreetFreak Clothing LLP**
 
 📍 **Location**  
-T4 , Prem Sagar Building,  
-Subhash Nagar, Jawahar Nagar,  
-Goregaon West, Mumbai - 400104
+1405/B, SHANTI KAMAL,
+BHAI BAL MUKUND MARG, CHINCHPOKLI EAST,
+MUMBAI MAHARASHTRA - 400011
 
 ⏰ **Working Hours**  
 Monday - Saturday: 10:00 AM - 7:00 PM  
