@@ -2365,6 +2365,557 @@
                 display: none;
             }
         }
+
+        /* ===== STREETFREAK DEVELOPER SECTION ===== */
+        .developer-section {
+            grid-column: 1 / -1;
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 0;
+            overflow: hidden;
+            border: 2px solid #e0e0e0;
+            box-shadow: 0 4px 20px rgba(43,43,43,0.08);
+            position: relative;
+        }
+
+        .developer-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #5b47ff, #4c3aff, #5b47ff);
+            background-size: 200% 100%;
+            animation: gradientShift 3s ease infinite;
+            z-index: 2;
+        }
+
+        .dev-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 460px;
+        }
+
+        /* Left: Clean white with dotted grid bg */
+        .dev-hero-left {
+            background: #ffffff;
+            background-image: radial-gradient(circle, rgba(91,71,255,0.08) 1px, transparent 1px);
+            background-size: 28px 28px;
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border-right: 1px solid #e8e8e8;
+        }
+
+        .dev-hero-left::after {
+            content: '</>';
+            position: absolute;
+            bottom: -30px;
+            right: -10px;
+            font-size: 10rem;
+            font-weight: 900;
+            color: rgba(91, 71, 255, 0.04);
+            font-family: monospace;
+            letter-spacing: -5px;
+            pointer-events: none;
+        }
+
+        .dev-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(91, 71, 255, 0.08);
+            border: 1.5px solid rgba(91, 71, 255, 0.25);
+            color: #5b47ff;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            width: fit-content;
+        }
+
+        .dev-badge::before {
+            content: '';
+            width: 7px; height: 7px;
+            background: #5b47ff;
+            border-radius: 50%;
+            animation: blink 1.5s ease infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.25; }
+        }
+
+        .dev-hero-left h2 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: #2b2b2b;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -1.5px;
+        }
+
+        .dev-hero-left h2 span {
+            background: linear-gradient(135deg, #5b47ff, #4c3aff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .dev-hero-left p {
+            color: rgba(43,43,43,0.55);
+            font-size: 1rem;
+            line-height: 1.8;
+            max-width: 400px;
+            margin-bottom: 32px;
+        }
+
+        .dev-portfolio-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #2b2b2b;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            transition: all 0.3s ease;
+            width: fit-content;
+            position: relative;
+            z-index: 2;
+        }
+
+        .dev-portfolio-link:hover {
+            background: #5b47ff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(91, 71, 255, 0.35);
+        }
+
+        .dev-portfolio-link svg {
+            width: 16px; height: 16px;
+            fill: currentColor;
+            transition: transform 0.3s ease;
+        }
+
+        .dev-portfolio-link:hover svg {
+            transform: translate(3px, -3px);
+        }
+
+        /* Right: Light grey cards */
+        .dev-hero-right {
+            background: #f8f8f8;
+            padding: 45px 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 14px;
+        }
+
+        .dev-service-card {
+            background: #ffffff;
+            border: 1.5px solid #ebebeb;
+            border-radius: 14px;
+            padding: 18px 22px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dev-service-card::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #5b47ff, #4c3aff);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .dev-service-card:hover {
+            border-color: rgba(91, 71, 255, 0.3);
+            transform: translateX(5px);
+            box-shadow: 0 4px 20px rgba(91, 71, 255, 0.08);
+        }
+
+        .dev-service-card:hover::before {
+            opacity: 1;
+        }
+
+        .dev-service-icon {
+            font-size: 1.6rem;
+            width: 44px;
+            height: 44px;
+            background: rgba(91, 71, 255, 0.07);
+            border-radius: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(91, 71, 255, 0.12);
+        }
+
+        .dev-service-card:hover .dev-service-icon {
+            background: rgba(91, 71, 255, 0.13);
+            transform: scale(1.08);
+        }
+
+        .dev-service-text h4 {
+            color: #2b2b2b;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 3px;
+            letter-spacing: 0.1px;
+        }
+
+        .dev-service-text p {
+            color: rgba(43,43,43,0.48);
+            font-size: 0.79rem;
+            line-height: 1.5;
+        }
+
+        /* Tech Stack Strip */
+        .dev-tech-strip {
+            background: #f5f5f5;
+            border-top: 1.5px solid #e8e8e8;
+            padding: 18px 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .dev-tech-label {
+            color: rgba(43,43,43,0.35);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            margin-right: 6px;
+        }
+
+        .dev-tech-tag {
+            background: #ffffff;
+            border: 1.5px solid #e0e0e0;
+            color: rgba(43,43,43,0.65);
+            padding: 5px 13px;
+            border-radius: 7px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            font-family: 'Space Grotesk', monospace;
+            transition: all 0.25s ease;
+            cursor: default;
+        }
+
+        .dev-tech-tag:hover {
+            border-color: #5b47ff;
+            color: #5b47ff;
+            background: rgba(91, 71, 255, 0.05);
+            transform: translateY(-2px);
+        }
+
+        /* ===== DEV CTA STRIP ===== */
+        .dev-cta-strip {
+            grid-column: 1 / -1;
+            background: #f5f5f5;
+            border-radius: 20px;
+            padding: 40px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            border: 2px solid #e0e0e0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dev-cta-strip::after {
+            content: '{ }';
+            position: absolute;
+            right: 220px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: monospace;
+            font-size: 6rem;
+            font-weight: 900;
+            color: rgba(91, 71, 255, 0.05);
+            letter-spacing: -5px;
+            pointer-events: none;
+        }
+
+        .dev-cta-text h3 {
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: #2b2b2b;
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+        }
+
+        .dev-cta-text p {
+            color: rgba(43,43,43,0.5);
+            font-size: 0.9rem;
+        }
+
+        .dev-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #2b2b2b;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 16px 36px;
+            border-radius: 14px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .dev-cta-btn:hover {
+            background: #5b47ff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(91, 71, 255, 0.3);
+        }
+
+        /* Developer section responsive */
+        @media (max-width: 768px) {
+            .dev-hero {
+                grid-template-columns: 1fr;
+            }
+            .dev-hero-left {
+                padding: 45px 28px;
+                border-right: none;
+                border-bottom: 1px solid #e8e8e8;
+            }
+            .dev-hero-left h2 {
+                font-size: 2.1rem;
+            }
+            .dev-hero-right {
+                padding: 32px 28px;
+            }
+            .dev-tech-strip {
+                padding: 16px 28px;
+            }
+            .dev-cta-strip {
+                flex-direction: column;
+                text-align: center;
+                padding: 35px 25px;
+            }
+            .dev-cta-strip::after {
+                display: none;
+            }
+        }
+
+        /* Contact Modal */
+        .contact-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(43, 43, 43, 0.8);
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            position: relative;
+            z-index: 1001;
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: modalSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 36px;
+            height: 36px;
+            border: none;
+            background: rgba(43, 43, 43, 0.1);
+            color: #2b2b2b;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background: rgba(43, 43, 43, 0.2);
+            transform: rotate(90deg);
+        }
+
+        .close-modal svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .modal-inner {
+            text-align: center;
+        }
+
+        .modal-inner h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #2b2b2b;
+        }
+
+        .modal-inner > p {
+            font-size: 0.95rem;
+            color: rgba(43, 43, 43, 0.6);
+            margin-bottom: 30px;
+        }
+
+        .modal-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .modal-option {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 18px 20px;
+            background: #f5f5f5;
+            border: 1.5px solid #e5e5e5;
+            border-radius: 16px;
+            text-decoration: none;
+            color: #2b2b2b;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .modal-option:hover {
+            background: white;
+            border-color: #5b47ff;
+            transform: translateX(8px);
+            box-shadow: 0 8px 24px rgba(91, 71, 255, 0.15);
+        }
+
+        .option-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #5b47ff 0%, #4c3aff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .option-icon svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+        }
+
+        .option-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .option-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #5b47ff;
+            display: block;
+        }
+
+        .option-value {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #2b2b2b;
+            display: block;
+            margin-top: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                padding: 30px 24px;
+                border-radius: 16px;
+            }
+
+            .modal-inner h2 {
+                font-size: 1.5rem;
+            }
+
+            .modal-options {
+                gap: 10px;
+            }
+
+            .modal-option {
+                padding: 14px 16px;
+                gap: 12px;
+            }
+
+            .option-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .option-value {
+                font-size: 0.95rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -2373,7 +2924,7 @@
             <!-- Header -->
             <header>
                 <div class="logo">
-                    <img src="StreetFreak_logo.svg" alt="StreetFreak Logo">
+                    <img src="StreetFreak_logo.svg" alt="StreetFreak Logo" decoding="async">
                 </div>
             </header>
 
@@ -2381,10 +2932,10 @@
             <section class="banner-section">
                 <div class="banner-slideshow">
                     <div class="banner-slide active">
-                        <img src="BANNER/2.jpg" alt="StreetFreak Banner 2" fetchpriority="high">
+                        <img src="BANNER/2.jpg" alt="StreetFreak Banner 2" fetchpriority="high" decoding="async">
                     </div>
                     <div class="banner-slide">
-                        <img src="BANNER/1.jpg" alt="StreetFreak Banner 1" loading="lazy">
+                        <img data-src="BANNER/1.jpg" alt="StreetFreak Banner 1" loading="lazy" decoding="async" fetchpriority="low">
                     </div>
                     
                     <!-- Navigation Arrows -->
@@ -2430,40 +2981,40 @@
                 <div class="image-slideshow-wrapper">
                     <div class="image-slideshow">
                         <div class="showcase-slide active">
-                            <img src="images/2.png" alt="StreetFreak Product 1">
+                            <img src="images/2.png" alt="StreetFreak Product 1" loading="lazy" decoding="async" fetchpriority="low">
                         </div>
                         <div class="showcase-slide">
-                            <img src="images/3.png" alt="StreetFreak Product 2" loading="lazy">
+                            <img data-src="images/3.png" alt="StreetFreak Product 2" loading="lazy" decoding="async" fetchpriority="low">
                         </div>
                         <div class="showcase-slide">
-                            <img src="images/4.png" alt="StreetFreak Product 3" loading="lazy">
+                            <img data-src="images/4.png" alt="StreetFreak Product 3" loading="lazy" decoding="async" fetchpriority="low">
                         </div>
                         <div class="showcase-slide">
-                            <img src="images/5.png" alt="StreetFreak Product 4" loading="lazy">
+                            <img data-src="images/5.png" alt="StreetFreak Product 4" loading="lazy" decoding="async" fetchpriority="low">
                         </div>
                         <div class="showcase-slide">
-                            <img src="images/6.png" alt="StreetFreak Product 5" loading="lazy">
+                            <img data-src="images/6.png" alt="StreetFreak Product 5" loading="lazy" decoding="async" fetchpriority="low">
                         </div>
                         <div class="showcase-slide">
-                            <img src="images/7.png" alt="StreetFreak Product 6" loading="lazy">
+                            <img data-src="images/7.png" alt="StreetFreak Product 6" loading="lazy" decoding="async" fetchpriority="low">
                         </div>
                         <div class="showcase-slide">
-                            <img src="images/8.png" alt="StreetFreak Product 7" loading="lazy">
+                            <img data-src="images/8.png" alt="StreetFreak Product 7" loading="lazy" decoding="async" fetchpriority="low">
                         </div>
                         <div class="showcase-slide">
-                            <img src="images/9.png" alt="StreetFreak Product 8" loading="lazy">
+                            <img data-src="images/9.png" alt="StreetFreak Product 8" loading="lazy" decoding="async" fetchpriority="low">
                         </div>
                         <div class="showcase-slide">
-                            <img src="images/10.png" alt="StreetFreak Product 9" loading="lazy">
+                            <img data-src="images/10.png" alt="StreetFreak Product 9" loading="lazy" decoding="async" fetchpriority="low">
                         </div>
                         <div class="showcase-slide">
-                            <img src="images/11.png" alt="StreetFreak Product 10" loading="lazy">
+                            <img data-src="images/11.png" alt="StreetFreak Product 10" loading="lazy" decoding="async" fetchpriority="low">
                         </div>
                         <div class="showcase-slide">
-                            <img src="images/12.png" alt="StreetFreak Product 11" loading="lazy">
+                            <img data-src="images/12.png" alt="StreetFreak Product 11" loading="lazy" decoding="async" fetchpriority="low">
                         </div>
                         <div class="showcase-slide">
-                            <img src="images/13.png" alt="StreetFreak Product 12" loading="lazy">
+                            <img data-src="images/13.png" alt="StreetFreak Product 12" loading="lazy" decoding="async" fetchpriority="low">
                         </div>
                     </div>
 
@@ -2498,7 +3049,7 @@
             <section class="manufacturer-section">
                 <!-- Left Panel - Purple with Logo and Title -->
                 <div class="manufacturer-left-panel">
-                    <img src="StreetFreak(B2B).svg" alt="StreetFreak As a Manufacturer" class="manufacturer-logo">
+                    <img src="StreetFreak(B2B).svg" alt="StreetFreak As a Manufacturer" class="manufacturer-logo" loading="lazy" decoding="async" fetchpriority="low">
                 </div>
 
                 <!-- Right Panel - White with Content and Button -->
@@ -2512,6 +3063,78 @@
                     </div>
                 </div>
             </section>
+
+            <!-- StreetFreak Developer Section -->
+            <section class="developer-section">
+                <div class="dev-hero">
+                    <div class="dev-hero-left">
+                        <div class="dev-badge">StreetFreak Dev</div>
+                        <h2>We Build <span>Digital Experiences</span> That Hit Different.</h2>
+                        <p>Beyond streetwear — StreetFreak crafts high-performance websites, web applications, custom automations, and digital tools. From concept to launch, we engineer solutions that look good and work harder.</p>
+                        <a href="dev-portfolio.html" class="dev-portfolio-link">
+                            <span>View Our Portfolio</span>
+                            <svg viewBox="0 0 24 24"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3zM5 5h7v2H7v10h10v-5h2v7H5V5z"/></svg>
+                        </a>
+                    </div>
+                    <div class="dev-hero-right">
+                        <div class="dev-service-card">
+                            <div class="dev-service-icon">🌐</div>
+                            <div class="dev-service-text">
+                                <h4>Websites &amp; Landing Pages</h4>
+                                <p>Blazing fast, visually striking sites — portfolio pages to full e-commerce storefronts.</p>
+                            </div>
+                        </div>
+                        <div class="dev-service-card">
+                            <div class="dev-service-icon">⚙️</div>
+                            <div class="dev-service-text">
+                                <h4>Web Applications &amp; Software</h4>
+                                <p>Custom web apps, dashboards, SaaS tools, and internal platforms built to scale.</p>
+                            </div>
+                        </div>
+                        <div class="dev-service-card">
+                            <div class="dev-service-icon">🤖</div>
+                            <div class="dev-service-text">
+                                <h4>Automations &amp; AI Integrations</h4>
+                                <p>n8n workflows, LLM pipelines, API bots — let us handle the repetitive stuff.</p>
+                            </div>
+                        </div>
+                        <div class="dev-service-card">
+                            <div class="dev-service-icon">🎨</div>
+                            <div class="dev-service-text">
+                                <h4>UI/UX Design &amp; Prototyping</h4>
+                                <p>Figma-first design systems, interactive prototypes, and pixel-perfect handoffs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dev-tech-strip">
+                    <span class="dev-tech-label">Stack</span>
+                    <span class="dev-tech-tag">HTML5</span>
+                    <span class="dev-tech-tag">CSS3</span>
+                    <span class="dev-tech-tag">JavaScript</span>
+                    <span class="dev-tech-tag">React</span>
+                    <span class="dev-tech-tag">Next.js</span>
+                    <span class="dev-tech-tag">Node.js</span>
+                    <span class="dev-tech-tag">Python</span>
+                    <span class="dev-tech-tag">n8n</span>
+                    <span class="dev-tech-tag">LLM / AI</span>
+                    <span class="dev-tech-tag">Figma</span>
+                    <span class="dev-tech-tag">REST APIs</span>
+                    <span class="dev-tech-tag">Shopify</span>
+                    <span class="dev-tech-tag">WordPress</span>
+                </div>
+            </section>
+
+            <!-- Dev CTA Strip -->
+            <div class="dev-cta-strip">
+                <div class="dev-cta-text">
+                    <h3>Got an idea? Let's build it.</h3>
+                    <p>Whether it's a website, a web app, or full automation — StreetFreak Dev is ready.</p>
+                </div>
+                <a href="#" class="dev-cta-btn contact-trigger">
+                    <span>Start a Project →</span>
+                </a>
+            </div>
 
             <!-- Contact Section -->
             <section class="contact-section">
@@ -2607,7 +3230,7 @@
         </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Banner Slideshow Logic
         let currentBannerSlide = 0;
         const bannerSlides = document.querySelectorAll('.banner-slide');
@@ -2615,7 +3238,25 @@
         const bannerProgress = document.getElementById('bannerProgress');
         let bannerAutoSlide;
 
+        function hydrateSlideImage(slide) {
+            const deferredImage = slide.querySelector('img[data-src]');
+            if (!deferredImage || deferredImage.dataset.loaded === 'true') {
+                return;
+            }
+
+            deferredImage.src = deferredImage.dataset.src;
+            deferredImage.dataset.loaded = 'true';
+        }
+
+        function hydrateNearbyBannerSlides(index) {
+            hydrateSlideImage(bannerSlides[index]);
+            const nextIndex = (index + 1) % bannerSlides.length;
+            hydrateSlideImage(bannerSlides[nextIndex]);
+        }
+
         function showBannerSlide(index) {
+            hydrateNearbyBannerSlides(index);
+
             // Remove active class from all slides and dots
             bannerSlides.forEach(slide => slide.classList.remove('active'));
             bannerDots.forEach(dot => dot.classList.remove('active'));
@@ -2665,6 +3306,7 @@
         }
 
         // Start auto slideshow and progress bar
+        hydrateNearbyBannerSlides(currentBannerSlide);
         bannerAutoSlide = setInterval(autoBannerSlide, 4000);
         restartProgressBar();
 
@@ -2720,10 +3362,18 @@
         const totalImagesSpan = document.getElementById('total-images');
         let showcaseAutoSlide;
 
+        function hydrateNearbyShowcaseSlides(index) {
+            hydrateSlideImage(showcaseSlides[index]);
+            const nextIndex = (index + 1) % showcaseSlides.length;
+            hydrateSlideImage(showcaseSlides[nextIndex]);
+        }
+
         // Set total images
         totalImagesSpan.textContent = showcaseSlides.length;
 
         function showShowcaseSlide(index) {
+            hydrateNearbyShowcaseSlides(index);
+
             // Remove active class from all slides and dots
             showcaseSlides.forEach(slide => slide.classList.remove('active'));
             showcaseDots.forEach(dot => dot.classList.remove('active'));
@@ -2766,6 +3416,7 @@
         }
 
         // Start auto slideshow
+        hydrateNearbyShowcaseSlides(currentShowcaseSlide);
         showcaseAutoSlide = setInterval(autoShowcaseSlide, 3500);
 
         // Pause slideshow on hover
@@ -3109,13 +3760,89 @@
                 gameCanvas.addEventListener('click', function() {
                     if (typeof gtag === 'function') {
                         gtag('event', 'game_interaction', {
-                            'event_category': 'STREETRUNNER Game',
-                            'event_label': 'Game Started'
+                            'event_category': 'Game',
+                            'event_label': 'Game Played'
                         });
                     }
-                }, { once: true });
+                });
+            }
+        });
+    </script>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contactModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="close-modal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="modal-inner">
+                <h2>Let's Connect</h2>
+                <p>Choose your preferred way to reach us</p>
+                <div class="modal-options">
+                    <a href="mailto:aman@streetfreak.in" class="modal-option email-option">
+                        <div class="option-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                        </div>
+                        <div class="option-text">
+                            <span class="option-label">Email</span>
+                            <span class="option-value">aman@streetfreak.in</span>
+                        </div>
+                    </a>
+                    <a href="tel:+919372586948" class="modal-option phone-option">
+                        <div class="option-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                        </div>
+                        <div class="option-text">
+                            <span class="option-label">Call</span>
+                            <span class="option-value">+91 9372586948</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal Script -->
+    <script>
+        const contactTriggers = document.querySelectorAll('.contact-trigger');
+        const contactModal = document.getElementById('contactModal');
+        const closeModalBtn = document.querySelector('.close-modal');
+        const modalOverlay = document.querySelector('.modal-overlay');
+
+        contactTriggers.forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                contactModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            contactModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        modalOverlay.addEventListener('click', () => {
+            contactModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && contactModal.classList.contains('active')) {
+                contactModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
             }
         });
     </script>
 </body>
 </html>
+                  
